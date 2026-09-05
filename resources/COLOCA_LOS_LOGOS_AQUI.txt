@@ -1,0 +1,6 @@
+Coloca en esta carpeta:
+- RINCONLOGO.png  (logo de El Rincón Nobsano)
+- CAFELOGO.png    (logo de Café La Ruana)
+
+IMPORTANTE: copia también los mismos archivos a la carpeta /public
+para que Next.js pueda mostrarlos en el navegador.

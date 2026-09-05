@@ -1,0 +1,6 @@
+Coloca aquí una imagen llamada exactamente:
+
+    cafe_pred.jpg
+
+Se usa como imagen de respaldo automática en la sección de Anuncios
+cuando se registra un anuncio de tipo "foto" sin imagen propia.

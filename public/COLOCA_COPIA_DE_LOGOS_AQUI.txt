@@ -1,0 +1,2 @@
+Copia aquí RINCONLOGO.png y CAFELOGO.png
+(Next.js sirve las imágenes públicas desde esta carpeta)
