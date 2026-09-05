@@ -539,6 +539,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   padding: 20px 22px;
   display: flex; gap: 18px;
   transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+  min-width: 0;
 }
 .plato-card:hover {
   border-color: var(--mostaza);
@@ -551,8 +552,15 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   font-size: 17px; font-weight: 700;
   color: var(--tinta);
   margin-bottom: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0; flex: 1; 
 }
-.plato-info .desc { font-size: 15px; line-height: 1.55; color: #6a4f3a; margin-bottom: 8px; font-style: italic; }
+.plato-info .desc {
+  font-size: 15px; line-height: 1.55; color: #6a4f3a; margin-bottom: 8px; font-style: italic;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
 .plato-info .precio {
   font-family: 'Cinzel', serif;
   color: var(--choco); font-weight: 700; font-size: 16px;
@@ -726,4 +734,83 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   .menu-grid { grid-template-columns: 1fr; }
   .flotantes-wrap { right: 14px; bottom: 14px; gap: 10px; }
   .flotante { padding: 11px 16px 11px 12px; font-size: 11.5px; }
+}
+
+/* ── MODAL DE PLATO (ventana flotante con detalle) ──────── */
+.modal-fondo {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(46, 24, 9, 0.75);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(3px);
+}
+.modal-caja {
+  background: var(--papel);
+  border-radius: 18px;
+  max-width: 480px; width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 2px solid var(--mostaza);
+}
+.modal-cerrar {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(46,24,9,0.8); color: var(--crema);
+  border: none; font-size: 16px; cursor: pointer;
+}
+.modal-imagen {
+  height: 260px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--crema-claro), var(--mostaza-suave));
+}
+.modal-imagen img { width: 100%; height: 100%; object-fit: cover; }
+.modal-info { padding: 28px 30px; }
+.modal-info h3 {
+  font-family: 'Cinzel', serif; font-size: 24px; color: var(--choco);
+  margin-bottom: 12px;
+}
+.modal-info p { font-size: 16px; line-height: 1.7; color: #4c3627; font-style: italic; }
+.modal-precio {
+  display: inline-block; margin-top: 14px;
+  font-family: 'Cinzel', serif; font-weight: 700; font-size: 18px; color: var(--choco);
+}
+.plato-card--clic {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Modal genérico de imagen (para fotos del menú físico) */
+.modal-caja--imagen {
+  max-width: 720px;
+  background: white;
+}
+.modal-caja--imagen img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Botón "lupa" sobre la foto del menú físico, para indicar que es clickeable */
+.menu-fisico-foto-btn {
+  position: relative;
+  width: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+}
+.menu-fisico-lupa {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  background: rgba(46,24,9,0.8);
+  color: var(--crema);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  pointer-events: none;
 }

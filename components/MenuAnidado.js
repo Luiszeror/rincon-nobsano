@@ -1,7 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import FotoMenuFisico from './FotoMenuFisico'
-
+import ModalPlato from './ModalPlato'
 /*
   Menú anidado de dos niveles para El Rincón Nobsano:
   Sección principal (ej: "Platos a la Carta") → Subsección (ej: "Carnes") → Platos.
@@ -78,10 +78,11 @@ function SeccionPrincipal({ seccion, abierta, onToggle, subAbiertas, onToggleSub
 export default function MenuAnidado({ secciones }) {
   const [abierta, setAbierta] = useState(null)
   const [subAbierta, setSubAbierta] = useState(null)
+  const [platoActivo, setPlatoActivo] = useState(null)
 
   const toggleSeccion = (i) => {
     setAbierta(prev => (prev === i ? null : i))
-    setSubAbierta(null) // al cambiar de sección, se cierra cualquier subsección abierta
+    setSubAbierta(null)
   }
 
   const toggleSub = (j) => {
@@ -108,14 +109,18 @@ export default function MenuAnidado({ secciones }) {
                   <div className="menu-cat-body">
                     <div className="menu-grid">
                       {sub.platos.map((p, k) => (
-                        <div key={k} className="plato-card">
+                        <button
+                          key={k}
+                          className="plato-card plato-card--clic"
+                          onClick={() => setPlatoActivo(p)}
+                        >
                           <span className="plato-emoji">{p.emoji || '🍽'}</span>
                           <div className="plato-info">
                             <h4>{p.nombre}</h4>
                             {p.desc && <p className="desc">{p.desc}</p>}
                             {p.precio && <span className="precio">{p.precio}</span>}
                           </div>
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -125,6 +130,8 @@ export default function MenuAnidado({ secciones }) {
           </div>
         </div>
       ))}
+
+      <ModalPlato plato={platoActivo} onClose={() => setPlatoActivo(null)} />
     </div>
   )
 }

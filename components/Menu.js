@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
+import ModalPlato from './ModalPlato'
 
 /*
   Menú acordeón: solo se ven las líneas (categorías),
@@ -59,6 +60,7 @@ function CategoriaAcordeon({ cat, abierta, onToggle }) {
 
 export default function Menu({ categorias }) {
   const [abierta, setAbierta] = useState(null)
+  const [platoActivo, setPlatoActivo] = useState(null)
 
   const alternar = (i) => setAbierta(prev => (prev === i ? null : i))
 
@@ -73,19 +75,21 @@ export default function Menu({ categorias }) {
           <div className="menu-cat-body">
             <div className="menu-grid">
               {cat.platos.map((p, j) => (
-                <div key={j} className="plato-card">
+                <button key={j} className="plato-card plato-card--clic" onClick={() => setPlatoActivo(p)}>
                   <span className="plato-emoji">{p.emoji || '🍽'}</span>
                   <div className="plato-info">
                     <h4>{p.nombre}</h4>
                     {p.desc && <p className="desc">{p.desc}</p>}
                     {p.precio && <span className="precio">{p.precio}</span>}
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
         </div>
       ))}
+
+      <ModalPlato plato={platoActivo} onClose={() => setPlatoActivo(null)} />
     </div>
   )
 }
