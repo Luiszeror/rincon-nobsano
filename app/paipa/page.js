@@ -6,7 +6,7 @@ import BotonesFlotantes from '../../components/BotonesFlotantes'
 export default function PaginaParaderoPaipa() {
   return (
     <>
-    <Cuaderno activo="paradero-paipa">
+    <Cuaderno activo="paipa">
       <CafeLaRuana
         cabecera
         nombreLocal="Estación Café La Ruana"

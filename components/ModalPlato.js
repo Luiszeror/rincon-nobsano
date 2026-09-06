@@ -1,14 +1,10 @@
 'use client'
+import { createPortal } from 'react-dom'
 
-/*
-  Ventana flotante que muestra un plato en grande: foto (o imagen
-  de respaldo), nombre y descripción completa. Se cierra con la X,
-  con la tecla Escape, o haciendo clic fuera del recuadro.
-*/
 export default function ModalPlato({ plato, onClose }) {
   if (!plato) return null
 
-  return (
+  const modal = (
     <div
       className="modal-fondo"
       onClick={onClose}
@@ -30,4 +26,6 @@ export default function ModalPlato({ plato, onClose }) {
       </div>
     </div>
   )
+
+  return createPortal(modal, document.body)
 }
