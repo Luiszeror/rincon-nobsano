@@ -1,4 +1,4 @@
 {
-  "/paipa/page": "app/paipa/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/paipa/page": "app/paipa/page.js"
 }
