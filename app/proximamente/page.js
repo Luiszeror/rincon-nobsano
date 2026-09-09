@@ -1,7 +1,7 @@
 'use client'
 import Cuaderno from '../../components/Cuaderno'
 import BotonesFlotantes from '../../components/BotonesFlotantes'
-
+import LogoMarca from '../../components/LogoMarca'
 export default function PaginaProximamente() {
   return (
     <>
@@ -50,7 +50,7 @@ export default function PaginaProximamente() {
         </div>
       </div>
     </Cuaderno>
-      <BotonesFlotantes whatsapp="+573000000000" />
+      <BotonesFlotantes whatsapp="+57 3215426830" />
     </>
   )
 }

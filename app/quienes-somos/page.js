@@ -2,6 +2,7 @@
 import Cuaderno from '../../components/Cuaderno'
 import BotonesFlotantes from '../../components/BotonesFlotantes'
 import { TituloSeccion } from '../../components/Secciones'
+import LogoMarca from '../../components/LogoMarca'
 
 export default function PaginaQuienesSomos() {
   return (
@@ -64,7 +65,7 @@ export default function PaginaQuienesSomos() {
         </p>
       </div>
     </Cuaderno>
-      <BotonesFlotantes whatsapp="+573000000000" />
+      <BotonesFlotantes whatsapp="+57 3215426830" />
     </>
   )
 }

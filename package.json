@@ -18,5 +18,9 @@
     "react-is": "^19.2.8",
     "sanity": "^3.99.0",
     "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@sanity/client": "^7.27.0",
+    "dotenv": "^17.4.2"
   }
 }
