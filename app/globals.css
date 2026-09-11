@@ -834,6 +834,43 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   .flotante { padding: 11px 16px 11px 12px; font-size: 11.5px; }
 
   /* Modal: que no se corte en pantallas chicas */
-  .modal-caja { max-width: 92vw; }
+   .modal-caja { max-width: 92vw; }
   .modal-imagen { height: 200px; }
+
+  /* Carrusel de ambiente en móvil: texto abajo, más pequeño */
+  .carrusel-texto-shadow {
+    top: auto;
+    left: 0; right: 0; bottom: 0;
+    width: 100%;
+    min-width: 0;
+    padding: 16px 20px 18px;
+    background: linear-gradient(0deg, rgba(46,24,9,0.92) 45%, transparent 100%);
+  }
+  .carrusel-texto-shadow .stitulo { font-size: 16px; }
+  .carrusel-texto-shadow .stexto { font-size: 12px; }
 }
+
+.carrusel-slide {
+  position: relative;
+  overflow: hidden;
+}
+.carrusel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.carrusel-texto-shadow {
+  position: absolute;
+  z-index: 2;
+  top: 0; right: 0; bottom: 0;
+  width: 42%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 36px;
+  background: linear-gradient(90deg, transparent 0%, rgba(46,24,9,0.65) 18%, rgba(46,24,9,0.96) 55%, rgba(46,24,9,0.98) 100%);
+}
+.carrusel-texto-shadow .stitulo { color: var(--crema); text-align: left; text-shadow: none; }
+.carrusel-texto-shadow .stexto { color: #f0e6cf; text-align: left; opacity: 1; }

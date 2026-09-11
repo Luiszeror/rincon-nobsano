@@ -5,8 +5,18 @@ export default {
   fields: [
     { name: 'local', title: 'Local', type: 'string',
       options: { list: ['rincon-nobsano', 'cafe-nobsa', 'cafe-mongui', 'cafe-paipa'] } },
-    { name: 'seccionPrincipal', title: 'Sección (solo El Rincón Nobsano)', type: 'string',
-      description: 'Usa exactamente "Platos a la Carta" o "Café y Frutería". Dejar vacío en los cafés.' },
+    {
+      name: 'seccionPrincipal',
+      title: 'Sección (solo El Rincón Nobsano)',
+      type: 'string',
+      description: 'Solo aplica a El Rincón Nobsano. Dejar vacío en los cafés.',
+      options: {
+        list: [
+          { title: 'Platos a la Carta', value: 'Platos a la Carta' },
+          { title: 'Café del Restaurante', value: 'Café del Restaurante' },
+        ],
+      },
+    },
     {
       name: 'fotos',
       title: 'Fotos del menú',

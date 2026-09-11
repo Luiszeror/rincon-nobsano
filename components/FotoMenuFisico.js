@@ -15,6 +15,8 @@ export default function FotoMenuFisico({ fotos = [] }) {
     )
   }
 
+  const total = fotos.length
+
   return (
     <>
       <div className="carrusel" style={{ marginBottom: 24 }}>
@@ -30,12 +32,25 @@ export default function FotoMenuFisico({ fotos = [] }) {
           />
           <span className="menu-fisico-lupa">🔍</span>
         </button>
-        {fotos.length > 1 && (
-          <div className="carrusel-puntos">
-            {fotos.map((_, i) => (
-              <button key={i} className={`punto ${i === actual ? 'activo' : ''}`} onClick={() => setActual(i)} />
-            ))}
-          </div>
+
+        {total > 1 && (
+          <>
+            <button
+              className="carrusel-btn prev"
+              onClick={(e) => { e.stopPropagation(); setActual(a => (a - 1 + total) % total) }}
+              aria-label="Anterior"
+            >‹</button>
+            <button
+              className="carrusel-btn next"
+              onClick={(e) => { e.stopPropagation(); setActual(a => (a + 1) % total) }}
+              aria-label="Siguiente"
+            >›</button>
+            <div className="carrusel-puntos">
+              {fotos.map((_, i) => (
+                <button key={i} className={`punto ${i === actual ? 'activo' : ''}`} onClick={(e) => { e.stopPropagation(); setActual(i) }} />
+              ))}
+            </div>
+          </>
         )}
       </div>
 
