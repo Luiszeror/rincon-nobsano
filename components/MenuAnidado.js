@@ -1,17 +1,15 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import FotoMenuFisico from './FotoMenuFisico'
 import ModalPlato from './ModalPlato'
+import { toggleConScrollFijo } from './scrollAnchor'
 
-/*
-  Menú anidado de 2 niveles del restaurante.
-  Solo una sección y una subsección abiertas a la vez.
-  Cada plato es clickeable y abre el modal de detalle.
-*/
 export default function MenuAnidado({ secciones = [] }) {
   const [abierta, setAbierta] = useState(null)
   const [subAbierta, setSubAbierta] = useState(null)
   const [platoActivo, setPlatoActivo] = useState(null)
+  const headRefs = useRef([])
+  const subHeadRefs = useRef({})
 
   if (secciones.length === 0) {
     return (
@@ -23,19 +21,32 @@ export default function MenuAnidado({ secciones = [] }) {
   }
 
   const toggleSeccion = (i) => {
-    setAbierta(prev => (prev === i ? null : i))
-    setSubAbierta(null)
+    toggleConScrollFijo(
+      { current: headRefs.current[i] },
+      () => {
+        setAbierta(prev => (prev === i ? null : i))
+        setSubAbierta(null)
+      }
+    )
   }
 
-  const toggleSub = (j) => {
-    setSubAbierta(prev => (prev === j ? null : j))
+  const toggleSub = (i, j) => {
+    const key = `${i}-${j}`
+    toggleConScrollFijo(
+      { current: subHeadRefs.current[key] },
+      () => setSubAbierta(prev => (prev === j ? null : j))
+    )
   }
 
   return (
     <div className="menu-acordeon">
       {secciones.map((seccion, i) => (
         <div key={i} className={`menu-cat ${abierta === i ? 'abierta' : ''}`}>
-          <button className="menu-cat-head" onClick={() => toggleSeccion(i)}>
+          <button
+            ref={(el) => (headRefs.current[i] = el)}
+            className="menu-cat-head"
+            onClick={() => toggleSeccion(i)}
+          >
             <span className="nombre">{seccion.icono} {seccion.nombre}</span>
             <span className="chevron">▼</span>
           </button>
@@ -44,7 +55,11 @@ export default function MenuAnidado({ secciones = [] }) {
               <FotoMenuFisico fotos={seccion.fotosMenu || []} />
               {(seccion.subsecciones || []).map((sub, j) => (
                 <div key={j} className={`submenu-cat ${subAbierta === j ? 'abierta' : ''}`}>
-                  <button className="submenu-cat-head" onClick={() => toggleSub(j)}>
+                  <button
+                    ref={(el) => (subHeadRefs.current[`${i}-${j}`] = el)}
+                    className="submenu-cat-head"
+                    onClick={() => toggleSub(i, j)}
+                  >
                     <span className="nombre">{sub.nombre}</span>
                     <span className="chevron">▼</span>
                   </button>
@@ -57,8 +72,8 @@ export default function MenuAnidado({ secciones = [] }) {
                           onClick={() => setPlatoActivo(p)}
                         >
                           <div className="plato-foto">
-  {p.imagen ? <img src={p.imagen} alt={p.nombre} /> : (p.emoji || '🍽')}
-</div>
+                            {p.imagen ? <img src={p.imagen} alt={p.nombre} /> : (p.emoji || '🍽')}
+                          </div>
                           <div className="plato-info">
                             <h4>{p.nombre}</h4>
                             {p.desc && <p className="desc">{p.desc}</p>}
