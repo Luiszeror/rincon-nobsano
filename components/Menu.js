@@ -35,7 +35,7 @@ export default function Menu({ categorias = [] }) {
               {cat.platos.map((p, j) => (
                 <button key={j} className="plato-card plato-card--clic" onClick={() => setPlatoActivo(p)}>
                   <div className="plato-foto">
-  {p.imagen ? <img src={p.imagen} alt={p.nombre} /> : (p.emoji || '🍽')}
+  {p.imagenMini ? <img src={p.imagenMini} alt={p.nombre} /> : (p.emoji || '🍽')}
 </div>
                   <div className="plato-info">
                     <h4>{p.nombre}</h4>
