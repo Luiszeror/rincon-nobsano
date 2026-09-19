@@ -72,8 +72,8 @@ export default function MenuAnidado({ secciones = [] }) {
                           onClick={() => setPlatoActivo(p)}
                         >
                           <div className="plato-foto">
-                            {p.imagen ? <img src={p.imagen} alt={p.nombre} /> : (p.emoji || '🍽')}
-                          </div>
+  {p.imagenMini ? <img src={p.imagenMini} alt={p.nombre} /> : (p.emoji || '🍽')}
+</div>
                           <div className="plato-info">
                             <h4>{p.nombre}</h4>
                             {p.desc && <p className="desc">{p.desc}</p>}
