@@ -2,6 +2,7 @@
   Componentes compartidos: títulos, anuncios, horarios,
   ubicación (con mapa embebido) y contactos (con logos SVG oficiales).
 */
+import ImagenConRespaldo from './ImagenConRespaldo'
 
 export function TituloSeccion({ children }) {
   return (
@@ -21,7 +22,16 @@ export function TituloSeccion({ children }) {
       Si no se especifica `imagen`, se usa automáticamente /cafe_pred.jpg
   - emoji (relleno de demostración): { media: '🎉', titulo, texto, fecha }
 */
-export function Anuncios({ items }) {
+export function Anuncios({ items = [] }) {
+  if (items.length === 0) {
+    return (
+      <div className="menu-fisico-vacio">
+        <span style={{ fontSize: 40 }}>📣</span>
+        <p>Aún no hay anuncios cargados para esta sede</p>
+      </div>
+    )
+  }
+
   return (
     <div>
       {items.map((a, i) => {
@@ -37,12 +47,7 @@ export function Anuncios({ items }) {
                   style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }}
                 />
               ) : a.imagen || a.tipo === 'foto' ? (
-                <img
-                  src={a.imagen || '/cafe_pred.jpg'}
-                  alt={a.titulo || 'Anuncio'}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }}
-                  onError={(e) => { e.currentTarget.src = '/cafe_pred.jpg' }}
-                />
+                <ImagenConRespaldo src={a.imagen} alt={a.titulo} />
               ) : (
                 a.media || '📣'
               )}
@@ -59,7 +64,16 @@ export function Anuncios({ items }) {
   )
 }
 
-export function Horarios({ items }) {
+export function Horarios({ items = [] }) {
+  if (items.length === 0) {
+    return (
+      <div className="menu-fisico-vacio">
+        <span style={{ fontSize: 40 }}>🕐</span>
+        <p>Aún no hay horarios cargados para esta sede</p>
+      </div>
+    )
+  }
+
   return (
     <div className="horarios-box">
       {items.map((h, i) => (
@@ -128,18 +142,35 @@ function IconGmail() {
   )
 }
 
-export function Contactos({ whatsapp, instagram, correo }) {
+export function Contactos({ whatsapp, instagram, correo } = {}) {
+  const hayContacto = whatsapp || instagram || correo
+
+  if (!hayContacto) {
+    return (
+      <div className="menu-fisico-vacio">
+        <span style={{ fontSize: 40 }}>📞</span>
+        <p>Aún no hay contacto cargado para esta sede</p>
+      </div>
+    )
+  }
+
   return (
     <div className="contactos-fila">
-      <a className="contacto-chip" href={`https://wa.me/${whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
-        <IconWhatsApp /> {whatsapp}
-      </a>
-      <a className="contacto-chip" href={`https://instagram.com/${instagram.replace('@','')}`} target="_blank" rel="noopener noreferrer">
-        <IconInstagram /> {instagram}
-      </a>
-      <a className="contacto-chip" href={`mailto:${correo}`}>
-        <IconGmail /> {correo}
-      </a>
+      {whatsapp && (
+        <a className="contacto-chip" href={`https://wa.me/${whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
+          <IconWhatsApp /> {whatsapp}
+        </a>
+      )}
+      {instagram && (
+        <a className="contacto-chip" href={`https://instagram.com/${instagram.replace('@','')}`} target="_blank" rel="noopener noreferrer">
+          <IconInstagram /> {instagram}
+        </a>
+      )}
+      {correo && (
+        <a className="contacto-chip" href={`mailto:${correo}`}>
+          <IconGmail /> {correo}
+        </a>
+      )}
     </div>
   )
 }
