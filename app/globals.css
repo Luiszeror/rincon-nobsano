@@ -793,6 +793,32 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   pointer-events: none;
 }
 
+/* Base de escritorio del carrusel de ambiente con foto real */
+.carrusel-slide {
+  position: relative;
+  overflow: hidden;
+}
+.carrusel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.carrusel-texto-shadow {
+  position: absolute;
+  z-index: 2;
+  top: 0; right: 0; bottom: 0;
+  width: 42%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 36px;
+  background: linear-gradient(90deg, transparent 0%, rgba(46,24,9,0.65) 18%, rgba(46,24,9,0.96) 55%, rgba(46,24,9,0.98) 100%);
+}
+.carrusel-texto-shadow .stitulo { color: var(--crema); text-align: left; text-shadow: none; }
+.carrusel-texto-shadow .stexto { color: #f0e6cf; text-align: left; opacity: 1; }
+
 /* ══════════════════════════════════════════════════════
    RESPONSIVE — UN SOLO BLOQUE, SIN REGLAS REPETIDAS
    ══════════════════════════════════════════════════════ */
@@ -819,22 +845,32 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   /* Carrusel de ambiente */
   .carrusel-slide { height: 260px; }
 
-  /* Producto estrella: el texto va ANCLADO ABAJO de la imagen,
-     nunca superpuesto con las flechas del carrusel */
-  .prod-estrella { height: 340px; }
+  /* Producto estrella en móvil:
+     el panel de texto solo ocupa el 45% inferior de la tarjeta,
+     con degradado progresivo (transparente arriba, sólido abajo)
+     para que la foto siga siendo claramente visible arriba. */
+  .prod-estrella { height: 380px; }
   .prod-estrella-slide { display: block; position: relative; }
   .prod-img { z-index: 0; }
   .prod-degradado {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    top: auto;
+    top: 55%;
     width: 100%;
     min-width: 0;
     margin-left: 0;
-    padding: 18px 56px 20px 20px; /* espacio a la derecha para no chocar con la flecha "next" */
+    padding: 24px 56px 20px 20px; /* espacio a la derecha para no chocar con la flecha "next" */
+    justify-content: flex-end;
+    background: linear-gradient(180deg, transparent 0%, rgba(46,24,9,0.85) 35%, rgba(46,24,9,0.97) 100%);
   }
-  .prod-degradado h3 { font-size: 20px; }
-  .prod-degradado p { font-size: 14px; }
+  .prod-degradado h3 { font-size: 19px; line-height: 1.25; }
+  .prod-degradado p {
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .carrusel-btn { width: 38px; height: 38px; font-size: 18px; }
 
   /* Menú: foto/emoji arriba, nombre y descripción abajo, todo centrado */
@@ -844,7 +880,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
     align-items: center;
     text-align: center;
   }
-    .plato-foto { width: 100%; height: 160px; border-radius: 12px 12px 0 0; }
+  .plato-foto { width: 100%; height: 160px; border-radius: 12px 12px 0 0; }
   .plato-info { width: 100%; }
   .plato-info h4,
   .plato-info .desc { text-align: center; }
@@ -854,44 +890,27 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   .flotante { padding: 11px 16px 11px 12px; font-size: 11.5px; }
 
   /* Modal: que no se corte en pantallas chicas */
-    .modal-caja { max-width: 92vw; }
+  .modal-caja { max-width: 92vw; }
   .modal-imagen { height: 200px; }
-  
 
-  /* Carrusel de ambiente en móvil: texto abajo, más pequeño */
+  /* Carrusel de ambiente en móvil: el panel de texto solo ocupa
+     el 40% inferior, con degradado progresivo (igual criterio
+     que Producto Estrella) para que la foto se distinga bien arriba. */
   .carrusel-texto-shadow {
-    top: auto;
+    top: 60%;
     left: 0; right: 0; bottom: 0;
     width: 100%;
     min-width: 0;
-    padding: 16px 20px 18px;
-    background: linear-gradient(0deg, rgba(46,24,9,0.92) 45%, transparent 100%);
+    padding: 20px 56px 16px 20px;
+    justify-content: flex-end;
+    background: linear-gradient(180deg, transparent 0%, rgba(46,24,9,0.88) 40%, rgba(46,24,9,0.97) 100%);
   }
   .carrusel-texto-shadow .stitulo { font-size: 16px; }
-  .carrusel-texto-shadow .stexto { font-size: 12px; }
+  .carrusel-texto-shadow .stexto {
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
-
-.carrusel-slide {
-  position: relative;
-  overflow: hidden;
-}
-.carrusel-img {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-.carrusel-texto-shadow {
-  position: absolute;
-  z-index: 2;
-  top: 0; right: 0; bottom: 0;
-  width: 42%;
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 32px 36px;
-  background: linear-gradient(90deg, transparent 0%, rgba(46,24,9,0.65) 18%, rgba(46,24,9,0.96) 55%, rgba(46,24,9,0.98) 100%);
-}
-.carrusel-texto-shadow .stitulo { color: var(--crema); text-align: left; text-shadow: none; }
-.carrusel-texto-shadow .stexto { color: #f0e6cf; text-align: left; opacity: 1; }
