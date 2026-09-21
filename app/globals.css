@@ -737,22 +737,27 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   border: none; font-size: 16px; cursor: pointer;
 }
 .modal-imagen {
-  position: relative;
-  height: 280px;
   background: linear-gradient(135deg, var(--crema-claro), var(--mostaza-suave));
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .modal-imagen img {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
 }
 .modal-info { padding: 28px 30px; }
 .modal-info h3 {
-  font-family: 'Cinzel', serif; font-size: 24px; color: var(--choco);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--choco);
   margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 .modal-info p { font-size: 16px; line-height: 1.7; color: #4c3627; font-style: italic; }
 .modal-precio {
