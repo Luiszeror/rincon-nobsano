@@ -23,21 +23,6 @@ export default function PaginaQuienesSomos() {
         padding: '10px 26px', fontWeight: 700, marginBottom: 8,
       }}>← Volver al cuaderno</a>
 
-      <TituloSeccion>Nuestros fundadores</TituloSeccion>
-      <div className="fundador-card">
-        <div className="fundador-foto">👨‍👩‍🍳</div>
-        <h3 style={{ fontFamily: 'Cinzel, serif', color: 'var(--choco)', fontSize: 25, fontWeight: 700, marginBottom: 8 }}>
-          Los Fundadores
-        </h3>
-        <p style={{ fontFamily: 'Cinzel, serif', fontSize: 13, color: '#b8860b', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 18 }}>
-          Familia fundadora · El Rincón Nobsano
-        </p>
-        <p style={{ fontSize: 17, color: '#4c3627', lineHeight: 1.85 }}>
-          Aquí irá la fotografía real de los fundadores junto con su reseña:
-          su historia, su vínculo con la cocina boyacense, el nacimiento del
-          restaurante y el sueño que dio vida al Café La Ruana.
-        </p>
-      </div>
 
       <TituloSeccion>La historia</TituloSeccion>
       <div style={{
@@ -60,9 +45,7 @@ export default function PaginaQuienesSomos() {
         }}>
           "De Nobsa para Boyacá, y de Boyacá para el mundo."
         </p>
-        <p style={{ fontSize: 13, color: '#9a8560', textAlign: 'center', marginTop: 24, fontStyle: 'italic' }}>
-          ✎ Texto borrador — se reemplazará con la historia real contada por los fundadores.
-        </p>
+        
       </div>
     </Cuaderno>
       <BotonesFlotantes whatsapp="+57 3215426830" />

@@ -1,13 +1,13 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'El Rincón Nobsano — Gastronomía Boyacense',
-  description: 'El Rincón Nobsano y Café La Ruana — Nobsa, Monguí y Paradero Paipa, Boyacá',
-  icons: {
-    icon: '/RINCONLOGO.png',
-    shortcut: '/RINCONLOGO.png',
-    apple: '/RINCONLOGO.png',
+  metadataBase: new URL('https://restauranterinconnobsano-cafelaruanaboyac.com'),
+  title: {
+    default: 'El Rincón Nobsano — Gastronomía Boyacense',
+    template: '%s | El Rincón Nobsano',
   },
+  description:
+    'El Rincón Nobsano y Café La Ruana en Nobsa, Monguí y Paipa, Boyacá. Cocina boyacense, café de especialidad y milhojas artesanales.',
 }
 
 export default function RootLayout({ children }) {

@@ -7,6 +7,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap');
 
+/* Cinzel para todo, pero la Ñ/ñ se dibuja con una serif del sistema */
+@font-face {
+  font-family: 'CinzelEnie';
+  src: local('Georgia'), local('Times New Roman'), local('Noto Serif'), local('DejaVu Serif');
+  unicode-range: U+00D1, U+00F1;
+  font-weight: 400 900;
+}
 :root {
   --choco: #4e2a15;
   --choco-oscuro: #2e1809;
@@ -33,7 +40,7 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
+h1, h2, h3, .titulo { font-family: 'CinzelEnie', 'Cinzel', Georgia, serif; }
 
 /* ── EL CUADERNO — pantalla completa, sin márgenes muertos ── */
 .cuaderno-wrap {
@@ -143,10 +150,11 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   z-index: 20;
 }
 .separador {
+  text-decoration: none;
   writing-mode: vertical-rl;
   padding: 24px 13px;
   border-radius: 0 12px 12px 0;
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.14em;
@@ -217,7 +225,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 .cabecera-local .subtitulo {
   display: inline-block;
   margin-top: 16px;
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 16px;
   font-weight: 600;
   color: var(--choco-oscuro);
@@ -292,7 +300,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   background: linear-gradient(90deg, transparent 0%, rgba(46,24,9,0.65) 18%, rgba(46,24,9,0.96) 55%, rgba(46,24,9,0.98) 100%);
 }
 .prod-etiqueta {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 12px; font-weight: 700;
   color: var(--choco-oscuro);
   background: var(--mostaza);
@@ -333,7 +341,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   color: var(--choco);
 }
 .carrusel-slide .icono { font-size: 76px; }
-.carrusel-slide .stitulo { font-family: 'Cinzel', serif; font-size: 21px; font-weight: 700; }
+.carrusel-slide .stitulo { font-family: 'CinzelEnie', 'Cinzel', serif; font-size: 21px; font-weight: 700; }
 .carrusel-slide .stexto { opacity: 0.7; font-size: 15px; font-style: italic; }
 .carrusel-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
@@ -391,7 +399,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 .anuncio-card h3 { color: var(--choco); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
 .anuncio-card p { font-size: 17px; line-height: 1.75; color: #4c3627; }
 .anuncio-fecha {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 12px; font-weight: 600;
   color: var(--mostaza);
   background: var(--choco);
@@ -418,7 +426,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 }
 .horario-fila:last-child { border-bottom: none; }
 .horario-fila .dia {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 16px; font-weight: 600;
   color: var(--crema);
   letter-spacing: 0.05em;
@@ -453,7 +461,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 }
 .menu-cat-head:hover { background: linear-gradient(90deg, var(--crema), var(--crema-claro)); }
 .menu-cat-head .nombre {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 22px; font-weight: 700;
   color: var(--choco);
   letter-spacing: 0.04em;
@@ -493,7 +501,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   cursor: pointer;
 }
 .submenu-cat-head .nombre {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 16px; font-weight: 600;
   color: var(--choco-medio);
   letter-spacing: 0.02em;
@@ -544,7 +552,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 }
 .plato-info { min-width: 0; flex: 1; }
 .plato-info h4 {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 17px; font-weight: 700;
   color: var(--tinta);
   margin-bottom: 5px;
@@ -557,7 +565,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   word-break: break-word;
 }
 .plato-info .precio {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   color: var(--choco); font-weight: 700; font-size: 16px;
 }
 
@@ -590,7 +598,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   text-decoration: none; font-weight: 700; font-size: 16px;
   margin-top: 20px;
   transition: background 0.25s, color 0.25s;
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   letter-spacing: 0.04em;
 }
 .btn-maps:hover { background: var(--mostaza); color: var(--choco-oscuro); }
@@ -621,7 +629,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 .divisor-local { margin: 76px 0; display: flex; align-items: center; gap: 18px; }
 .divisor-local .linea { flex: 1; height: 2px; background: var(--mostaza); opacity: 0.5; }
 .divisor-local .sello {
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   color: var(--choco); font-size: 17px; font-weight: 600;
   font-style: italic; white-space: nowrap;
   letter-spacing: 0.06em;
@@ -679,7 +687,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   text-decoration: none;
   padding: 14px 22px 14px 16px;
   border-radius: 40px;
-  font-family: 'Cinzel', serif;
+  font-family: 'CinzelEnie', 'Cinzel', serif;
   font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -722,12 +730,11 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 .modal-caja {
   background: var(--papel);
   border-radius: 18px;
-  max-width: 480px; width: 100%;
-  overflow: hidden;
+  max-width: 560px; width: 100%;
   position: relative;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   border: 2px solid var(--mostaza);
-  max-height: 90vh;
+  max-height: 92vh;
   overflow-y: auto;
 }
 .modal-cerrar {
@@ -744,11 +751,13 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 }
 .modal-imagen img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 65vh;
+  width: auto;
   height: auto;
-  max-height: 60vh;
   object-fit: contain;
 }
+.modal-imagen > span { padding: 36px 0; line-height: 1; }
 .modal-info { padding: 28px 30px; }
 .modal-info h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -762,7 +771,7 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 .modal-info p { font-size: 16px; line-height: 1.7; color: #4c3627; font-style: italic; }
 .modal-precio {
   display: inline-block; margin-top: 14px;
-  font-family: 'Cinzel', serif; font-weight: 700; font-size: 18px; color: var(--choco);
+  font-family: 'CinzelEnie', 'Cinzel', serif; font-weight: 700; font-size: 18px; color: var(--choco);
 }
 
 /* Modal genérico de imagen (para fotos del menú físico) */
@@ -831,8 +840,10 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
   /* Estructura general del cuaderno */
   .cuaderno-wrap { padding: 8px 40px 16px 18px; }
   .pagina-contenido { padding: 30px 24px 56px 60px; }
-  .separadores { right: -40px; top: 36px; gap: 12px; }
-  .separador { font-size: 11px; padding: 16px 10px; }
+  .separadores { right: -26px; top: 12px; gap: 6px; }
+  .separador { font-size: 9px; padding: 10px 6px; letter-spacing: 0.06em; border-radius: 0 8px 8px 0; }
+  .separador.activo { padding-right: 9px; }
+  .separador.inactivo:hover { padding-right: 8px; }
   .cabecera-local { padding: 38px 28px; }
   .logo-marca { width: 220px; height: 220px; right: -44px; opacity: 0.28; }
   .margen-cuaderno { left: 48px; }
@@ -892,11 +903,12 @@ h1, h2, h3, .titulo { font-family: 'Cinzel', Georgia, serif; }
 
   /* Botones flotantes */
   .flotantes-wrap { right: 14px; bottom: 14px; gap: 10px; }
-  .flotante { padding: 11px 16px 11px 12px; font-size: 11.5px; }
+  .flotante { padding: 12px; }
+  .flotante span:not(.flotante-icono) { display: none; }
 
   /* Modal: que no se corte en pantallas chicas */
   .modal-caja { max-width: 92vw; }
-  .modal-imagen { height: 200px; }
+  .modal-imagen img { max-height: 50vh; }
 
   /* Carrusel de ambiente en móvil: el panel de texto solo ocupa
      el 40% inferior, con degradado progresivo (igual criterio

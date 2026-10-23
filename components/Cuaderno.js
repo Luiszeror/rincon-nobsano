@@ -8,6 +8,7 @@ export default function Cuaderno({ activo, children }) {
 
   const pestanas = [
     { id: 'nobsa', label: 'Nobsa', href: '/' },
+    { id: 'nobsa-cafe', label: 'Nobsa-Café', href: '/nobsa-cafe' },
     { id: 'mongui', label: 'Monguí', href: '/mongui' },
     { id: 'paipa', label: 'Paipa', href: '/paipa' },
     { id: 'proximamente', label: 'Próximamente', href: '/proximamente' },
@@ -19,6 +20,13 @@ export default function Cuaderno({ activo, children }) {
     setTimeout(() => router.push(p.href), 260)
   }
 
+  function alHacerClic(e, p) {
+    // Ctrl/Cmd/Shift o clic medio: dejar que el navegador abra el enlace normal
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+    e.preventDefault()
+    irA(p)
+  }
+
   return (
     <div className="cuaderno-wrap">
       <div className={`cuaderno ${volteando ? 'volteando' : 'entrando'}`}>
@@ -28,15 +36,17 @@ export default function Cuaderno({ activo, children }) {
         <div className="margen-cuaderno" />
         <div className="separadores">
           {pestanas.map(p => (
-            <button
+            <a
               key={p.id}
+              href={p.href}
+              aria-current={p.id === activo ? 'page' : undefined}
               className={`separador ${
                 p.id === activo ? 'activo'
                 : p.id === 'proximamente' ? 'proximamente'
                 : 'inactivo'
               }`}
-              onClick={() => irA(p)}
-            >{p.label}</button>
+              onClick={(e) => alHacerClic(e, p)}
+            >{p.label}</a>
           ))}
         </div>
         <div className="pagina-contenido">{children}</div>
