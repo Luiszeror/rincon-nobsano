@@ -34,6 +34,7 @@ export default function CafeLaRuana({
         </div>
       )}
 
+      {!proximamente && (<>
       <TituloSeccion>Ubicación</TituloSeccion>
       <Ubicacion {...ubicacion} />
 
@@ -55,6 +56,7 @@ export default function CafeLaRuana({
 
       <TituloSeccion>Contactos</TituloSeccion>
       <Contactos {...contactos} />
+      </>)}
     </section>
   )
 }

@@ -94,8 +94,6 @@ export function Ubicacion({ titulo, descripcion, direccion, mapsQuery }) {
     <div className="ubicacion-box">
       <div className="ubicacion-info">
         <h3>{titulo}</h3>
-        <p>{descripcion}</p>
-        <p style={{ marginTop: 14, fontWeight: 700 }}>{direccion}</p>
         <a className="btn-maps" href={link} target="_blank" rel="noopener noreferrer">
           Abrir en Google Maps
         </a>
