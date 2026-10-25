@@ -7,6 +7,12 @@ import { TituloSeccion, Anuncios, Horarios, Ubicacion, Contactos } from '../comp
 import { getContenidoLocal } from '../lib/sanity/queries'
 import LogoMarca from '../components/LogoMarca'
 
+export const metadata = {
+  title: 'Restaurante en Nobsa, Boyacá | Cocina boyacense',
+  description: 'Restaurante El Rincón Nobsano en Nobsa, Boyacá: cocina boyacense, platos a la carta, café y frutería. Mira el menú, horarios y ubicación.',
+  alternates: { canonical: '/' },
+}
+
 export default async function PaginaNobsa() {
   const rincon = await getContenidoLocal('rincon-nobsano')
 

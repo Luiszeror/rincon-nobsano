@@ -3,6 +3,12 @@ import CafeLaRuana from '../../components/CafeLaRuana'
 import BotonesFlotantes from '../../components/BotonesFlotantes'
 import { getContenidoLocal } from '../../lib/sanity/queries'
 
+export const metadata = {
+  title: 'Café en Paipa | Estación Café La Ruana',
+  description: 'Estación Café La Ruana en el Paradero Paipa, vía Nobsa–Paipa, Boyacá: café de especialidad, milhojas y comidas. Menú y horarios.',
+  alternates: { canonical: '/paipa' },
+}
+
 export default async function PaginaParaderoPaipa() {
   const cafePaipa = await getContenidoLocal('cafe-paipa')
 

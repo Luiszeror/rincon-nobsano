@@ -3,6 +3,12 @@ import CafeLaRuana from '../../components/CafeLaRuana'
 import BotonesFlotantes from '../../components/BotonesFlotantes'
 import { getContenidoLocal } from '../../lib/sanity/queries'
 
+export const metadata = {
+  title: 'Café en Monguí | Café La Ruana',
+  description: 'Café La Ruana en Monguí, Boyacá, frente a la plaza principal: café de especialidad, postres artesanales y bebidas. Menú y horarios.',
+  alternates: { canonical: '/mongui' },
+}
+
 export default async function PaginaMongui() {
   const cafeMongui = await getContenidoLocal('cafe-mongui')
 
