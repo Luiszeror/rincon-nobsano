@@ -9,6 +9,7 @@ import LogoMarca from '../components/LogoMarca'
 export default function CafeLaRuana({
   sede, nombreLocal, slides, anuncios, horarios, ubicacion, contactos,
   cabecera, productosEstrella, menuCategorias, fotosMenu,
+  proximamente, videoEspera,
 }) {
   return (
     <section>
@@ -20,24 +21,37 @@ export default function CafeLaRuana({
         </div>
       )}
 
-      <TituloSeccion>Productos estrella</TituloSeccion>
-      <ProductosEstrella productos={productosEstrella} />
+      {proximamente && (
+        <div className="pronto-pantalla">
+          {videoEspera && (
+            <video className="pronto-video" src={videoEspera} autoPlay muted loop playsInline />
+          )}
+          <div className="pronto-velo">
+            <span className="pronto-sello">✦ Muy pronto ✦</span>
+            <h2>Esperamos en Paipa pronto</h2>
+            <p>Estamos preparando nuestra sede con todo el sabor de Café La Ruana.</p>
+          </div>
+        </div>
+      )}
+
+      <TituloSeccion>Ubicación</TituloSeccion>
+      <Ubicacion {...ubicacion} />
 
       <TituloSeccion>Nuestro ambiente</TituloSeccion>
       <Carrusel slides={slides} />
-
-      <TituloSeccion>Anuncios</TituloSeccion>
-      <Anuncios items={anuncios} />
-
-      <TituloSeccion>Horarios</TituloSeccion>
-      <Horarios items={horarios} />
 
       <TituloSeccion>Menú</TituloSeccion>
       {fotosMenu !== undefined && <FotoMenuFisico fotos={fotosMenu} />}
       <Menu categorias={menuCategorias} />
 
-      <TituloSeccion>Ubicación</TituloSeccion>
-      <Ubicacion {...ubicacion} />
+      <TituloSeccion>Productos estrella</TituloSeccion>
+      <ProductosEstrella productos={productosEstrella} />
+
+      <TituloSeccion>Horarios</TituloSeccion>
+      <Horarios items={horarios} />
+
+      <TituloSeccion>Anuncios</TituloSeccion>
+      <Anuncios items={anuncios} />
 
       <TituloSeccion>Contactos</TituloSeccion>
       <Contactos {...contactos} />

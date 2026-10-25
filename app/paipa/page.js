@@ -17,6 +17,7 @@ export default async function PaginaParaderoPaipa() {
       <Cuaderno activo="paipa">
         <CafeLaRuana
           cabecera
+          proximamente
           nombreLocal="Estación Café La Ruana"
           sede="Paipa"
           productosEstrella={cafePaipa.productosEstrella}

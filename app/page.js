@@ -26,21 +26,6 @@ export default async function PaginaNobsa() {
           <span className="subtitulo">🍽 Nobsa · Boyacá</span>
         </div>
 
-        <TituloSeccion>Productos estrella</TituloSeccion>
-        <ProductosEstrella productos={rincon.productosEstrella} />
-
-        <TituloSeccion>Nuestro ambiente</TituloSeccion>
-        <Carrusel slides={rincon.ambiente} />
-
-        <TituloSeccion>Anuncios</TituloSeccion>
-        <Anuncios items={rincon.anuncios} />
-
-        <TituloSeccion>Horarios</TituloSeccion>
-        <Horarios items={rincon.horarios} />
-
-        <TituloSeccion>Menú</TituloSeccion>
-        <MenuAnidado secciones={rincon.menuAnidado} />
-
         <TituloSeccion>Ubicación</TituloSeccion>
         <Ubicacion
           titulo="Nobsa, Boyacá"
@@ -48,6 +33,21 @@ export default async function PaginaNobsa() {
           direccion="Calle 5 # 4-12, Parque Principal, Nobsa"
           mapsQuery="Parque Principal Nobsa Boyaca"
         />
+
+        <TituloSeccion>Nuestro ambiente</TituloSeccion>
+        <Carrusel slides={rincon.ambiente} />
+
+        <TituloSeccion>Menú</TituloSeccion>
+        <MenuAnidado secciones={rincon.menuAnidado} />
+
+        <TituloSeccion>Productos estrella</TituloSeccion>
+        <ProductosEstrella productos={rincon.productosEstrella} />
+
+        <TituloSeccion>Horarios</TituloSeccion>
+        <Horarios items={rincon.horarios} />
+
+        <TituloSeccion>Anuncios</TituloSeccion>
+        <Anuncios items={rincon.anuncios} />
 
         <TituloSeccion>Contactos</TituloSeccion>
         <Contactos {...rincon.contactos} />
